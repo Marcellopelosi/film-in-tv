@@ -61,8 +61,11 @@ import time
 
 ratings = []
 for titolo_film in df["Titolo film"]:
-  ratings.append(filmtv_rating(titolo_film))
-  time.sleep(0.2)
+  try:
+    ratings.append(filmtv_rating(titolo_film))
+  except:
+    ratings.append(0)
+  time.sleep(0.1)
 
 df["ratings"]= ratings
 
